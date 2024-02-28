@@ -1,3 +1,5 @@
+import vitePluginString from 'vite-plugin-string'
+
 export default {
     root: 'src/',
     publicDir: '../static/',
@@ -13,4 +15,7 @@ export default {
         emptyOutDir: true, // Empty the folder first
         sourcemap: true // Add sourcemap
     },
+    plugins: [
+        vitePluginString()
+    ]
 }
