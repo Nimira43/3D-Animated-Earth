@@ -41,7 +41,9 @@ const atmosphere = new THREE.Mesh(
     new THREE.SphereGeometry(5, 50, 50),
     new THREE.ShaderMaterial({
         vertexShader: atmosphereVertexShader,
-        fragmentShader: atmosphereFragmentShader
+        fragmentShader: atmosphereFragmentShader,
+        blending: THREE.AdditiveBlending,
+        side: THREE.BackSide
     })
 )
 
@@ -54,6 +56,7 @@ camera.position.z = 15
 function animate() {
     requestAnimationFrame(animate)
     renderer.render(scene, camera)
+    sphere.rotation.y += 0.002
 }
 
 animate()
