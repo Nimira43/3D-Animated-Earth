@@ -1,4 +1,5 @@
 import restart from 'vite-plugin-restart'
+import vitePluginString from 'vite-plugin-string'
 
 export default {
     root: 'src/', 
@@ -16,6 +17,7 @@ export default {
     },
     plugins:
     [
-        restart({ restart: [ '../static/**', ] }) 
+        restart({ restart: ['../static/**',] }),
+        vitePluginString()
     ],
 }

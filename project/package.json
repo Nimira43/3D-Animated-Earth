@@ -9,7 +9,8 @@
   },
   "devDependencies": {
     "vite": "^5.3.3",
-    "vite-plugin-restart": "^0.4.1"
+    "vite-plugin-restart": "^0.4.1",
+    "vite-plugin-string": "^1.2.3"
   },
   "dependencies": {
     "three": "^0.166.1"
