@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import vertexShader from '../shaders/vertex.glsl'
-console.log(vertexShader)
+import fragmentShader from '../shaders/fragment.glsl'
 
 const scene = new THREE.Scene()
 const camera = new THREE.PerspectiveCamera(
@@ -9,6 +9,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 )
+
 const renderer = new THREE.WebGLRenderer(
     {
         antialias: true
@@ -23,7 +24,7 @@ const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(5, 50, 50),
     new THREE.ShaderMaterial({
         vertexShader,
-        fragmentShader: 
+        fragmentShader 
     })
 )
 scene.add(sphere)
