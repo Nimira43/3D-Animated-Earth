@@ -1,3 +1,4 @@
+import gsap from 'gsap'
 import * as THREE from 'three'
 import vertexShader from '../shaders/vertex.glsl'
 import fragmentShader from '../shaders/fragment.glsl'
@@ -53,6 +54,22 @@ const group = new THREE.Group()
 group.add(sphere)
 scene.add(group)
 
+const starGeometry = new THREE.BufferGeometry()
+const starMaterial = new THREE.PointsMaterial({
+    color: 0xff4500
+})
+const starVertices = []
+for (let i = 0; i < 10000; i++) {
+    const x = (Math.random() - 0.5) * 2000 
+    const y = (Math.random() - 0.5) * 2000 
+    const z = -Math.random() * 2000
+    starVertices.push(x, y, z)
+    console.log(starVertices)
+}
+const stars = new THREE.Points(starGeometry, starMaterial)
+scene.add(stars)
+
+
 camera.position.z = 15
 
 const mouse = {
@@ -63,10 +80,14 @@ const mouse = {
 function animate() {
     requestAnimationFrame(animate)
     renderer.render(scene, camera)
-    sphere.rotation.y += 0.001
-    group.rotation.y = mouse.x * 0.5
+    sphere.rotation.y += 0.002
+    gsap.to(group.rotation, {
+        x: -mouse.y * 0.3,
+        y: mouse.x * 0.5,
+        duration: 2
+    })
 }
-
+        
 animate()
 
 addEventListener('mousemove', () => {
