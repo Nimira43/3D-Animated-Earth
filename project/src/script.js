@@ -35,7 +35,6 @@ const sphere = new THREE.Mesh(
         }
     })
 )
-scene.add(sphere)
 
 const atmosphere = new THREE.Mesh(
     new THREE.SphereGeometry(5, 50, 50),
@@ -52,21 +51,23 @@ scene.add(atmosphere)
 
 const group = new THREE.Group()
 group.add(sphere)
+scene.add(group)
 
 camera.position.z = 15
-
-function animate() {
-    requestAnimationFrame(animate)
-    renderer.render(scene, camera)
-    sphere.rotation.y += 0.002
-}
-
-animate()
 
 const mouse = {
     x: undefined,
     y: undefined
 }
+
+function animate() {
+    requestAnimationFrame(animate)
+    renderer.render(scene, camera)
+    sphere.rotation.y += 0.001
+    group.rotation.y = mouse.x * 0.5
+}
+
+animate()
 
 addEventListener('mousemove', () => {
     mouse.x = (event.clientX / innerWidth) * 2 - 1
