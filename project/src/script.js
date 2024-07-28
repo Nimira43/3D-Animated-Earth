@@ -20,7 +20,12 @@ const renderer = new THREE.WebGLRenderer(
     }
 )
 
-renderer.setSize(innerWidth, innerHeight)
+const canvasContainer = document.querySelector('#canvas-container')
+
+renderer.setSize(
+    canvasContainer.offsetWidth,
+    canvasContainer.offsetHeight
+)
 renderer.setPixelRatio(window.devicePixelRatio)
 
 
