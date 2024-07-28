@@ -15,19 +15,13 @@ const camera = new THREE.PerspectiveCamera(
 
 const renderer = new THREE.WebGLRenderer(
     {
-        antialias: true,
-        canvas: document.querySelector('canvas')
+        antialias: true
     }
 )
 
-const canvasContainer = document.querySelector('#canvas-container')
-
-renderer.setSize(
-    canvasContainer.offsetWidth,
-    canvasContainer.offsetHeight
-)
+renderer.setSize(innerWidth, innerHeight)
 renderer.setPixelRatio(window.devicePixelRatio)
-
+document.body.appendChild(renderer.domElement)
 
 const sphere = new THREE.Mesh(
     
@@ -73,8 +67,7 @@ for (let i = 0; i < 10000; i++) {
     starVertices.push(x, y, z)
 }
 
-starGeometry.setAttribute(
-    'position', 
+starGeometry.setAttribute('position', 
     new THREE.Float32BufferAttribute(
         starVertices, 3
     )

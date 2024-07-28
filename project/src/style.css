@@ -2,6 +2,6 @@
 
 body {
   margin: 0;
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
   font-family: 'Poppins', san-serif;
 }
