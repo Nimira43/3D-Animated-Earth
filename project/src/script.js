@@ -50,6 +50,8 @@ const atmosphere = new THREE.Mesh(
 atmosphere.scale.set(1.1, 1.1, 1.1)
 scene.add(atmosphere)
 
+const group = new THREE.Group()
+group.add(sphere)
 
 camera.position.z = 15
 
@@ -61,4 +63,13 @@ function animate() {
 
 animate()
 
+const mouse = {
+    x: undefined,
+    y: undefined
+}
 
+addEventListener('mousemove', () => {
+    mouse.x = (event.clientX / innerWidth) * 2 - 1
+    mouse.y = -(event.clientY / innerHeight) * 2 + 1
+    
+})
